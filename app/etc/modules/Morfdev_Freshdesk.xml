@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Morfdev_Freshdesk>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Morfdev_Freshdesk>
+    </modules>
+</config>

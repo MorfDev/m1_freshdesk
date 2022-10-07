@@ -1,0 +1,40 @@
+<?php
+/** @var $this Mage_Bundle_Block_Sales_Order_Items_Renderer */
+?>
+<?php $parentItem = $this->getItem() ?>
+<?php $options = $parentItem->getProductOptionByCode('bundle_options'); ?>
+<div class="u-epsilon item-options">
+<?php foreach ($options as $option): ?>
+    <span class="row-label"><?php /* @escapeNotVerified */ echo trim($option['label']) ?>:</span>
+    <span class="row-value">
+        <?php foreach ($option['value'] as $product): ?>
+            <span class="content row-value"><?php echo trim($this->escapeHtml($product['title'])) ?> x <?php echo trim($this->escapeHtml($product['qty'])) ?></span>
+        <?php endforeach; ?>
+    </span>
+<?php endforeach; ?>
+</div>
+<?php if ($options = $this->getItemOptions()): ?>
+    <div class="order-item item-options">
+        <?php foreach ($options as $option) : ?>
+            <div>
+                <span class="row-label"><?php echo trim($this->escapeHtml($option['label'])); ?>:</span>
+                <?php if (!$this->getPrintStatus()): ?>
+                    <?php $formatedOptionValue = $this->getFormatedOptionValue($option) ?>
+                    <span<?php if (isset($formatedOptionValue['full_view'])): ?> class="wrapper column-right row-value"<?php endif; ?>>
+                        <?php /* @escapeNotVerified */ echo trim($formatedOptionValue['value']) ?>
+                        <?php if (isset($formatedOptionValue['full_view'])): ?>
+                            <div class="content">
+                                <div class="item options">
+                                    <span class="row-label mr-5"><?php echo trim($this->escapeHtml($option['label'])); ?>:</span>
+                                    <span class="row-value"><?php /* @escapeNotVerified */ echo trim($formatedOptionValue['full_view']) ?></span>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                    </span>
+                <?php else: ?>
+                    <span class="row-value"><?php echo trim($this->escapeHtml((isset($option['print_value']) ? $option['print_value'] : $option['value']))); ?></span>
+                <?php endif; ?>
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>

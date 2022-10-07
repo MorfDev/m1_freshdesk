@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <md_freshdesk>
+                                        <title>MorfDev - Freshdesk Connector</title>
+                                    </md_freshdesk>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <translate>
+        <modules>
+            <Morfdev_Freshdesk>
+                <files>
+                    <default>Morfdev_Freshdesk.csv</default>
+                </files>
+            </Morfdev_Freshdesk>
+        </modules>
+    </translate>
+</config>

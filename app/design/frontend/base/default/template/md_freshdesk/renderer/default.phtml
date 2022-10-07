@@ -1,0 +1,23 @@
+<?php if ($options = $this->getItemOptions()): ?>
+    <div class="order-item item-options">
+        <?php foreach ($options as $option) : ?>
+            <div>
+                <span class="row-label mr-5"><?php echo trim($this->escapeHtml($option['label'])) ?>:</span>
+                <?php if (!$this->getPrintStatus()): ?>
+                    <?php $formatedOptionValue = $this->getFormatedOptionValue($option) ?>
+                    <span class="row-value">
+                        <?php if (isset($formatedOptionValue['full_view'])): ?>
+                            <?php /* @escapeNotVerified */ echo trim($formatedOptionValue['full_view']) ?>
+                        <?php else: ?>
+                            <?php /* @escapeNotVerified */ echo trim($formatedOptionValue['value']) ?>
+                        <?php endif; ?>
+                    </span>
+                <?php else: ?>
+                    <span class="row-value">
+                        <?php echo nl2br($this->escapeHtml((isset($option['print_value']) ? $option['print_value'] : $option['value']))) ?>
+                    </span>
+                <?php endif; ?>
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>

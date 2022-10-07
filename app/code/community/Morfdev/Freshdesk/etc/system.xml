@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <md_freshdesk translate="label" module="md_freshdesk">
+            <label>MorfDev</label>
+            <class>md_freshdesk</class>
+            <sort_order>300</sort_order>
+        </md_freshdesk>
+    </tabs>
+    <sections>
+        <md_freshdesk translate='label' module='md_freshdesk'>
+            <label>Freshdesk Connector</label>
+            <tab>md_freshdesk</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>105</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>0</show_in_website>
+            <show_in_store>0</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>Application settings</label>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <sort_order>10</sort_order>
+                    <fields>
+                        <token translate="label">
+                            <label>API Token</label>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </token>
+                        <generate_token translate="label">
+                            <frontend_model>md_freshdesk/adminhtml_system_config_generate</frontend_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </generate_token>
+                    </fields>
+                </general>
+            </groups>
+        </md_freshdesk>
+    </sections>
+</config>
